@@ -12,6 +12,13 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ServoController;
 import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigurationType;
 
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.teamcode.Other.Camera;
+import org.firstinspires.ftc.teamcode.Other.VisionPipeline;
+import org.openftc.easyopencv.OpenCvCamera;
+import org.openftc.easyopencv.OpenCvCameraFactory;
+import org.openftc.easyopencv.OpenCvCameraRotation;
+
 public class InitializeHW {
 
 
@@ -108,6 +115,25 @@ public class InitializeHW {
         Spinner.SP1=hm.get(CRServo.class, "Spinner1");
         Spinner.SP2=hm.get(CRServo.class, "Spinner2");
 
+    }
+
+    public static void InitCamera(HardwareMap hm) {
+        int cameraMonitorViewId = hm.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hm.appContext.getPackageName());
+
+        Camera.robotCamera = OpenCvCameraFactory.getInstance().createWebcam(hm.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
+
+        Camera.pipeline = new org.firstinspires.ftc.teamcode.Other.VisionPipeline();
+        Camera.robotCamera.setPipeline(Camera.pipeline);
+
+        Camera.robotCamera.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
+            @Override
+            public void onOpened() {
+                Camera.robotCamera.startStreaming(640, 480, OpenCvCameraRotation.UPRIGHT);
+            }
+
+            @Override
+            public void onError(int errorCode) {}
+        });
     }
 
 
