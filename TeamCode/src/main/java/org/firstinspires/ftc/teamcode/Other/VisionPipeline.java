@@ -21,7 +21,6 @@ public class VisionPipeline extends OpenCvPipeline {
 
         Imgproc.cvtColor(input, hsv, Imgproc.COLOR_RGB2HSV);
 
-        // EXEMPLU: culoare roșie (ajustezi)
         Scalar lowGreen = new Scalar(35, 100, 100);
         Scalar highGreen = new Scalar(85, 255, 255);
 
@@ -35,7 +34,6 @@ public class VisionPipeline extends OpenCvPipeline {
         Core.inRange(hsv, lowGreen, highGreen, maskGreen);
         Core.inRange(hsv, lowPurple, highPurple, maskPurple);
 
-// combinăm măștile
         Core.bitwise_or(maskGreen, maskPurple, mask);
 
         List<MatOfPoint> contours = new ArrayList<>();
@@ -68,7 +66,6 @@ public class VisionPipeline extends OpenCvPipeline {
             objectArea = maxArea;
             objectDetected = true;
 
-            // debug
             Imgproc.rectangle(input, r, new Scalar(0, 255, 0), 2);
         }
 

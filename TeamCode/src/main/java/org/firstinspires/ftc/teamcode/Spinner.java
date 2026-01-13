@@ -36,7 +36,7 @@ public class Spinner {
 
     public static void setupRotator(){
         encoder.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        position+=offsetFromReset;
+        position=offsetFromReset;
         shooterPos=false;
     }
 
@@ -55,7 +55,7 @@ public class Spinner {
 
     public static void setPower(double power){
         SP1.setPower(power);
-        SP1.setPower(power);
+        SP2.setPower(power);
     }
 
     public static double getCurrentRotatorPosition(){

@@ -23,6 +23,7 @@ public class Camera {
     }
 
     public void stop() {
+    
         robotCamera.stopStreaming();
         robotCamera.closeCameraDevice();
     }
