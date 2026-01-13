@@ -69,6 +69,10 @@ public class VisionPipeline extends OpenCvPipeline {
             Imgproc.rectangle(input, r, new Scalar(0, 255, 0), 2);
         }
 
+        maskGreen.release();
+        maskPurple.release();
+        mask.release();
+
         return input;
     }
 }

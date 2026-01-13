@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.acmerobotics.dashboard.FtcDashboard;
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -129,11 +130,13 @@ public class InitializeHW {
             @Override
             public void onOpened() {
                 Camera.robotCamera.startStreaming(640, 480, OpenCvCameraRotation.UPRIGHT);
+
             }
 
             @Override
             public void onError(int errorCode) {}
         });
+        FtcDashboard.getInstance().startCameraStream(Camera.robotCamera, 0);
     }
 
 

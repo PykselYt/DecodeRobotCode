@@ -9,8 +9,9 @@ public class Handler {
     public static boolean reverse=false;
     public static boolean shooterOn=false;
 
+    public static boolean driveType=false;
     public static boolean isPutaJos=false;
-    public static double pow=-0.7;
+    public static double pow=0.7;
 
     public static double getPowerSigned(double h, double p){
         double sgn = Math.signum(h);
@@ -66,12 +67,13 @@ public class Handler {
             Shooter.FarPitch();
         if(gm1.dpad_down && gm1.dpad_down!=prev1.dpad_down)
             Shooter.ClosePitch();
-
-        Chassis.RRD(
-                (reverse ? -1 : 1) * getPowerSigned(gm1.left_stick_x, 3),
-                (reverse ? 1 : -1) * getPowerSigned(gm1.left_stick_y, 3),
-                gm2.cross ? gm1.right_trigger - gm1.left_trigger : getPowerSigned(gm1.right_trigger - gm1.left_trigger, 3) * pow
-        );
+        if(!driveType)
+            Chassis.RRD(
+                    (reverse ? -1 : 1) * getPowerSigned(gm1.left_stick_x, 3),
+                    (reverse ? 1 : -1) * getPowerSigned(gm1.left_stick_y, 3),
+                    gm2.cross ? gm1.right_trigger - gm1.left_trigger : getPowerSigned(gm1.right_trigger - gm1.left_trigger, 3) * pow
+            );
+        else driveType=false;
 
 
 

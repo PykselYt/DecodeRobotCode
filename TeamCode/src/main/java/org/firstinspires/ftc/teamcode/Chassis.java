@@ -12,7 +12,6 @@ public class Chassis {
 
         double d = Math.max(Math.abs(x) + Math.abs(y) + Math.abs(r), 1);
         double fl, bl, fr, br;
-        r*=-1;
 
         fl = (y + x + r) / d;
         bl = (y - x + r) / d;
@@ -28,7 +27,6 @@ public class Chassis {
     public static void FRD(double x, double y, double r){
         double d = Math.max(Math.abs(x) + Math.abs(y) + Math.abs(r), 1);
         double fl, bl, fr, br;
-        r*=-1;
     }
 
 }
