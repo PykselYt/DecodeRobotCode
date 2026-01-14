@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode;
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 
-import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.IMU;
 
@@ -11,7 +10,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 
 public class Chassis {
 
-    //???chached motors
     public static DcMotor FL, FR, BL, BR;
     public static  IMU imu;
 
