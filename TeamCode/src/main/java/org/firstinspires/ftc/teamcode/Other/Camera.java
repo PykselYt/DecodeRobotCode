@@ -10,17 +10,6 @@ public class Camera {
 
     public static org.firstinspires.ftc.teamcode.Other.VisionPipeline pipeline;
 
-    public boolean isObjectDetected() {
-        return pipeline.objectDetected;
-    }
-
-    public int getObjectX() {
-        return pipeline.objectX;
-    }
-
-    public double getObjectArea() {
-        return pipeline.objectArea;
-    }
 
     public void stop() {
     

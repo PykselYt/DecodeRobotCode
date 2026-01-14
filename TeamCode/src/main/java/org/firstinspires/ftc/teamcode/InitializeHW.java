@@ -12,6 +12,7 @@ import com.qualcomm.robotcore.hardware.IMU;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ServoController;
 import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigurationType;
+import org.firstinspires.ftc.robotcore.external.hardware.camera.controls.ExposureControl;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.teamcode.Other.Camera;
@@ -129,7 +130,7 @@ public class InitializeHW {
         Camera.robotCamera.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
             @Override
             public void onOpened() {
-                Camera.robotCamera.startStreaming(640, 480, OpenCvCameraRotation.UPRIGHT);
+                Camera.robotCamera.startStreaming(640, 480, OpenCvCameraRotation.SIDEWAYS_LEFT);
 
             }
 
